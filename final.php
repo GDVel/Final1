@@ -11,7 +11,7 @@ class keys {
 
 
 
-//singleton connection
+//singleton connection from php tut
 class dbaccess {
 
 private $connection;
@@ -41,8 +41,10 @@ public function result($query){
 }
 
 class main {
+   
+  // accessing db
    private $db;
-   // accessing db
+ 
    public function __construct() {
    $this->db = dbaccess::getInstance();
   }
