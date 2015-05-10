@@ -2,6 +2,15 @@
 <body>
 <?php
 
+class keys {
+            public static $sqlhost = 'localhost';
+            public static $sqluser = 'root';
+            public static $sqlpass = 'password';
+            public static $sqldb = 'project';
+        }
+
+
+
 //singleton connection
 class dbaccess {
 
@@ -18,7 +27,7 @@ public static function getInstance(){
 }
 //conencting to mysql database
 private function connect(){
- $this->connection = new PDO('mysql:host=' .constants::$sqlhost . 'dbname' . constants::$sqldb, constants::$sqldb, constants::$sqlpass);
+ $this->connection = new PDO('mysql:host=' .keys::$sqlhost . 'dbname' . keys::$sqldb, keys::$sqldb, keys::$sqlpass);
 }
 
 public function result($query){
