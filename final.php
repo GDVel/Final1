@@ -106,12 +106,7 @@ public function comp($num) {
             }
 }
 
-class Constants {
-            public static $sqlhost = 'localhost';
-            public static $sqluser = 'root';
-            public static $sqlpass = 'password';
-            public static $sqldb = 'project';
-        }
+
         
         
 $main = new main();
