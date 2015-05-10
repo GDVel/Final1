@@ -6,7 +6,7 @@ mysql -u root -p --local-infile
 created db named project
 created tables colleges, enrollment, financial, standing, and status
 
-CREATE TABLE institution (
+CREATE TABLE college (
     id INT(6) UNSIGNED PRIMARY KEY,
     name VARCHAR(120) NOT NULL,
     address VARCHAR(100) NOT NULL,
@@ -16,6 +16,18 @@ CREATE TABLE institution (
     region CHAR(2) NOT NULL,
     website VARCHAR(150)
 );
+
+CREATE TABLE enrollment (
+    id INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    college_id INT(6) UNSIGNED,
+    status INT(6) UNSIGNED,
+    section INT(6) UNSIGNED,
+    standing INT(6) UNSIGNED,
+    ment INT(6) NOT NULL,
+    womentINT(6) NOT NULL,
+    total INT(6) NOT NULL
+);
+
 
 
 LOAD DATA LOCAL INFILE 'temp/hd2013.csv' INTO TABLE institution FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES;
