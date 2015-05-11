@@ -76,13 +76,13 @@ INS;
 public function compile($num) {
     switch ($num) {
   case 1:
-         $query = 'select distinct college.name, college.city, college.state, enrollment.mentotal from enrollment join on college.id = enrollment.college_id where enrollment.time = 3 order by mentotal DESC limit 1;';
+         $query = 'select distinct college.name, college.city, college.state, enrollment.womentotal from enrollment join on college.id = enrollment.college_id where enrollment.time = 3 order by mentotal DESC limit 1;';
          $result = $this->db->Result($query);
         echo '<h3>Colleges with the highest percentage of women students?</h3>';
         echo '<p> The College with the highest amount of enrolled women is  ' .$result['name'] .$result['city'] .$result['state'] .'</p> ';
           break;
   case 2:
-        $query = 'select distinct college.name, college.city, college.state, enrollment.womentotal from enrollment join on college.id = enrollment.college_id where enrollment.time = 3 order by womentotal DESC limit 1; ';
+        $query = 'select distinct college.name, college.city, college.state, enrollment.mentotal from enrollment join on college.id = enrollment.college_id where enrollment.time = 3 order by womentotal DESC limit 1; ';
         $result = $this->db->Result($query);
         echo '<h3>Colleges with the highest percentage of male students?</h3>';
         echo '<p> The College with the highest amount of enrolled men is  ' .$result['name'] .$result['city'] .$result['state'] .'</p>';
