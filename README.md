@@ -29,9 +29,17 @@ CREATE TABLE enrollment (
 );
 
 
+table time = Full time, part time, all students
+table standing includes undergraduate, graduate, all students
 
-LOAD DATA LOCAL INFILE 'temp/hd2013.csv' INTO TABLE institution FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE ‘projects/hd2013.csv' INTO TABLE institution FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES;
 
-LOAD DATA LOCAL INFILE 'temp/ef2013a.csv' INTO TABLE institution FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE ‘projects/ef2013a.csv' INTO TABLE institution FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES (college_id, status, time, standing, mentotal, womentotal, total);
 
-LOAD DATA LOCAL INFILE 'temp/f1213_fla.csv' INTO TABLE institution FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE ‘projects/f1213_fla.csv' INTO TABLE institution FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES (college_id, currassets, totalassets, currliab, tuition, endowment );
+
+
+
+
+
