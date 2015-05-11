@@ -88,19 +88,19 @@ public function comp($num) {
         echo ' ';
             break;
   case 3:
-      $query = ' ';
+      $query = 'select college.name, college.city, college.state, financial.endowment from financial join college on college.id = financial.college_id order by financial.endowment DESC limit 10 ';
       $result = $this->db->Result($query);
       echo '<h3>Colleges with the largest endowment?</h3>';
 
       break;
  case 4:
-      $query = ' ';
+      $query = 'select college.name, college.city, college.state, enrollment.total, from enrollment join college on college.id = enrollment.college_id where enrollment.status = 3 order by enrollment.total DESC limit 10 ';
       $result = $this->db->Result($query);
       echo '<h3>Colleges with largest enrollment of freshmen?</h3>';
 
       break;
   case 5:
-      $query = ' ';
+      $query = 'college.name, college.city, college.state, financial.tuition from financial join college on college.id = financial.college_id order by financial.tuition DESC limit 10 ';
       $result = $this->db->Result($query);
       echo '<h3>Colleges with the highest revenue from tuition?</h3>';
       
