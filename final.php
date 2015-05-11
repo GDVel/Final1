@@ -76,41 +76,41 @@ INS;
 public function compile($num) {
     switch ($num) {
   case 1:
-         $query = 'select distinct college.name, college.city, college.state, enrollment.mentotal from enrollment join on college.id = enrollment.college_id where enrollment.time = 3 order by mentotal DESC limit 10;';
+         $query = 'select distinct college.name, college.city, college.state, enrollment.mentotal from enrollment join on college.id = enrollment.college_id where enrollment.time = 3 order by mentotal DESC limit 1;';
          $result = $this->db->Result($query);
         echo '<h3>Colleges with the highest percentage of women students?</h3>';
         echo '<p> The College with the highest amount of enrolled women is  ' .$result['name'] .$result['city'] .$result['state'] .'</p> ';
           break;
   case 2:
-        $query = 'select distinct college.name, college.city, college.state, enrollment.womentotal from enrollment join on college.id = enrollment.college_id where enrollment.time = 3 order by womentotal DESC limit 10; ';
+        $query = 'select distinct college.name, college.city, college.state, enrollment.womentotal from enrollment join on college.id = enrollment.college_id where enrollment.time = 3 order by womentotal DESC limit 1; ';
         $result = $this->db->Result($query);
         echo '<h3>Colleges with the highest percentage of male students?</h3>';
         echo '<p> The College with the highest amount of enrolled men is  ' .$result['name'] .$result['city'] .$result['state'] .'</p>';
 
             break;
   case 3:
-      $query = 'select college.name, college.city, college.state, financial.endowment from financial join college on college.id = financial.college_id order by financial.endowment DESC limit 10 ';
+      $query = 'select college.name, college.city, college.state, financial.endowment from financial join college on college.id = financial.college_id order by financial.endowment DESC limit 1 ';
       $result = $this->db->Result($query);
       echo '<h3>Colleges with the largest endowment?</h3>';
       echo '<p> The College with the largest endowment is  ' .$result['name'] .$result['city'] .$result['state'] .'</p>';
 
       break;
  case 4:
-      $query = 'select college.name, college.city, college.state, enrollment.total, from enrollment join college on college.id = enrollment.college_id where enrollment.status = 3 order by enrollment.total DESC limit 10 ';
+      $query = 'select college.name, college.city, college.state, enrollment.total, from enrollment join college on college.id = enrollment.college_id where enrollment.status = 3 order by enrollment.total DESC limit 1 ';
       $result = $this->db->Result($query);
       echo '<h3>Colleges with largest enrollment of freshmen?</h3>';
       echo '<p> The College with the largest amount of enrolled freshmen is  ' .$result['name'] .$result['city'] .$result['state'] .'</p>';
 
       break;
   case 5:
-      $query = 'college.name, college.city, college.state, financial.tuition from financial join college on college.id = financial.college_id order by financial.tuition DESC limit 10 ';
+      $query = 'college.name, college.city, college.state, financial.tuition from financial join college on college.id = financial.college_id order by financial.tuition DESC limit 1';
       $result = $this->db->Result($query);
       echo '<h3>Colleges with the highest revenue from tuition?</h3>';
        echo '<p> The College with the largest revenue from tuition is  ' .$result['name'] .$result['city'] .$result['state'] .'</p>';
       
       break;
   case 6:
-     $query= ' ';
+     $query= 'select college.name, college.city, college.state, financial.tuition from financial join college college.id = financial.college_id order by name limit 1  ';
     $result = $this->db->Result($query);
     echo '<h3>Colleges with the lowest non-zero tuition?</h3>';
      echo '<p> The College with the lowest non-zero tuition is  ' .$result['name'] .$result['city'] .$result['state'] .'</p>';
