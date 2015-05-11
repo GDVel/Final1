@@ -76,13 +76,13 @@ INS;
 public function comp($num) {
     switch ($num) {
   case 1:
-         $query = 'select first_name, last_name, max(salary) from (select first_name, last_name, salary from employees right join salaries on employees.emp_no=salaries.emp_no) as employeesalaries';
+         $query = 'select distinct college.name, college.city, college.state, enrollment.mentotal from enrollment join on college.id = enrollment.college_id where enrollment.time = 3 order by mentotal DESC limit 10;';
          $result = $this->db->Result($query);
         echo '<h3>Colleges with the highest percentage of women students?</h3>';
         echo ' ';
           break;
   case 2:
-        $query = ' ';
+        $query = 'select distinct college.name, college.city, college.state, enrollment.womentotal from enrollment join on college.id = enrollment.college_id where enrollment.time = 3 order by womentotal DESC limit 10; ';
         $result = $this->db->Result($query);
         echo '<h3>Colleges with the highest percentage of male students?</h3>';
         echo ' ';
