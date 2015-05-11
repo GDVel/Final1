@@ -110,7 +110,7 @@ public function compile($num) {
       
       break;
   case 6:
-     $query= 'select college.name, college.city, college.state, financial.tuition from financial join college college.id = financial.college_id order by name limit 1  ';
+     $query= 'select college.name, college.city, college.state, financial.tuition from financial join college college.id = financial.college_id where tuition <> 0 order by tuition limit 1  ';
     $result = $this->db->Result($query);
     echo '<h3>Colleges with the lowest non-zero tuition?</h3>';
      echo '<p> The College with the lowest non-zero tuition is  ' .$result['name'] .$result['city'] .$result['state'] .'</p>';
